@@ -10,7 +10,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
 
+      - name: install TF
+        run: pip install tf-nightly
+
       - name: run test
-        run: |
-          pip install tf-nightly
-          python test.py
+        run: python test.py
