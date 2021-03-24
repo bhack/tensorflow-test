@@ -1,9 +1,12 @@
-from tensorflow.io.gfile import GFile
+import tensorflow as tf
 
-with GFile("ram://test.txt", mode="w") as f:
+
+tf.io.gfile.makedirs("ram://test/inner")
+
+with tf.io.gfile.GFile("ram://test/inner/test.txt", mode="w") as f:
     f.write("test")
 
-with GFile("ram://test.txt", mode="rb") as f:
+with tf.io.gfile.GFile("ram://test/inner/test.txt", mode="rb") as f:
     print(f.size())
 
 
