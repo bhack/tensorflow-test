@@ -12,3 +12,5 @@ for root, _, filenames in tf.io.gfile.walk("ram://test"):
     for filename in filenames:
         path = os.path.join(root, filename)
         print(tf.io.gfile.exists(path))
+        with tf.io.gfile.GFile(path, mode="rb") as f:
+            print(f.size())
