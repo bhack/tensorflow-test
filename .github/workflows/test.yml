@@ -6,6 +6,7 @@ steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-python@v2
 
-  - run: |
-    pip install tf-nightly
-    python test.py
+  - name: run test
+    run: |
+      pip install tf-nightly
+      python test.py
