@@ -10,6 +10,5 @@ model.save("ram://test")
 
 for root, _, filenames in tf.io.gfile.walk("ram://test"):
     for filename in filenames:
-        dest_path = os.path.join(root, filename)
-        with tf.io.gfile.GFile(dest_path, mode="rb") as f:
-            print(f.size())
+        path = os.path.join(root, filename)
+        print(tf.io.gfile.exists(path))
