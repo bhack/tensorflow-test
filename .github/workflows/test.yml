@@ -1,7 +1,8 @@
 on: push
-runs-on: ${{ matrix.os }}
+
 jobs:
   Test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
