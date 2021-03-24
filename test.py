@@ -10,10 +10,11 @@ model.save("ram://test")
 
 for root, _, filenames in tf.io.gfile.walk("ram://test"):
     for filename in filenames:
-        if not filename.startswith("\\"):
-            # not on windows
-            filename = "/" + filename
-        path = root + filename
+        if filename[0] == "/":
+            # on windows
+            print("STRIPPING LEADING /")
+            filename = filename[1:]
+        path = os.path.join(root, filename)
         print(f"root: {root}")
         print(f"filename: {filename}")
         print(f"path: {path}")
