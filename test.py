@@ -7,6 +7,7 @@ with tf.io.gfile.GFile("ram://folder/file.txt", mode="w") as f:
     f.write("data")
 
 for root, _, filenames in tf.io.gfile.walk("ram://folder"):
+    print(root)
     for filename in filenames:
         print(filename)
         assert tf.io.gfile.exists(os.path.join(root, filename))
