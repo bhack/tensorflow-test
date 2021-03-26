@@ -1,14 +1,14 @@
 import os
 import tensorflow as tf
 
-tf.io.gfile.makedirs("ram://test/inner")
+import os
+import tensorflow as tf
 
-with tf.io.gfile.GFile("ram://test\\\\inner\\\\file.txt", mode="w") as f:
+
+tf.io.gfile.makedirs("ram://folder")
+with tf.io.gfile.GFile("ram://folder\\file.txt", mode="w") as f:
     f.write("data")
 
-for root, _, filenames in tf.io.gfile.walk("ram://test"):
+for root, _, filenames in tf.io.gfile.walk("ram://folder"):
     for filename in filenames:
-        path = root + "/" + filename
-        print(f"root: {root}")
-        print(f"filename: {filename}")
-        print(f"path: {path}")
+        assert tf.io.gfile.exists("ram://folder\\file.txt")
