@@ -12,6 +12,7 @@ jobs:
 
       - name: install TF
         run: pip install tf-nightly-cpu
+        run: pip show -f tf-nightly-cpu
 
       - name: run test
         run: python test.py
